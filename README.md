@@ -1,98 +1,76 @@
 # Refills
 
-## Prepackaged patterns and components, built on top of Bourbon, Bitters and Neat
+[![Gem Version](http://img.shields.io/gem/v/refills.svg?style=flat)](https://rubygems.org/gems/refills)
 
-[Bourbon](http://bourbon.io) provides Sass mixins and eliminates vendor prefixes, for faster CSS coding.
+***
 
-[Neat](http://neat.bourbon.io) provides a lightweight grid framework.
+## Prepackaged patterns and components built with [Bourbon](https://github.com/thoughtbot/bourbon), [Neat](https://github.com/thoughtbot/neat) and [Bitters](https://github.com/thoughtbot/bitters)
 
-[Bitters](http://bitters.bourbon.io) provides basic variables and structure to a Bourbon/Neat project.
+Refills provide…
 
-[Refills](http://refills.bourbon.io) provides “copy-paste” components and patterns based on Bourbon, Neat and Bitters.
+- [Demo](http://refills.bourbon.io)
+- [Suggest features or file bugs](https://github.com/thoughtbot/refills/issues)
 
-See examples and get the code snippets [here](http://refills.bourbon.io)
+## Using Refills
 
-# Installing Dependencies
+1. Install the dependencies:
 
-[Install Bourbon](http://bourbon.io). Make sure to install version 3.2.0 if you are using e.g. Middleman.
+  - [Install Bourbon](https://github.com/thoughtbot/bourbon)
+  - [Install Neat](https://github.com/thoughtbot/neat)
+  - [Install Bitters](https://github.com/thoughtbot/bitters)
+  - [Install jQuery](http://jquery.com) (if you are using any of the components that require JavaScript)
 
-[Install Neat](http://neat.bourbon.io)
+2. Copy and paste:
 
-[Install Bitters](http://bitters.bourbon.io)
+  - Go to [refills.bourbon.io](http://refills.bourbon.io) and click the “Show Code” link under the component you want
+  - Copy and paste the code into your project
+  - The Sass for each component has a set of variables at the very top, which enable quick changes of color, size and general appearance
 
-[Install jQuery](http://jquery.com) if you are using any of the components/patterns that require JavaScript. JavaScript, when used, can be found at the bottom of the HTML file.
+## Using Refills with Ruby on Rails
 
-If a component/pattern has JavaScript it is placed in the HTML.erb file. Feel free to place it somewhere else in your project.
+We provide a gem for those of you that prefer to add Refills components through Rake tasks instead of copying and pasting.
 
-# Using Refills
+1. Add Refills to your Gemfile:
 
-* Click the “Show Code” link under the component/pattern you want from [Refills](http://refills.bourbon.io) to copy to your project and use the “copy” buttons to get the code to your clipboard.
-* If a component uses JavaScript, that code will be included at the bottom of the HTML file.
-* Each component/pattern has a set of variables at the very top of its Scss file. These pull out the most important properties of the component/pattern to enable quick changes of color, size and general appearance.
+  ```ruby
+  gem 'refills'
+  ```
 
-#### Using Refills with a Rails project
+2. Then run:
 
-Refills can be used by simply copy-pasting components/patterns from the site but if you prefer adding them via rake tasks, follow these steps:
+  ```bash
+  bundle install
+  ```
 
-Add gem to your Gemfile
+3. Generate components:
 
-    gem 'refills'
+  *List all the available components*
 
-The gem provides the following Rails generators
+  ```bash
+  rails generate refills:list
+  ```
 
-* `rails generate refills:list`
-Lists all the available snippets
+  *Copy partials to `app/views/refills` and stylesheets to `app/assets/stylesheets/refills`*
 
-* `rails generate refills:import SNIPPET`
-Copies partials to `app/views/refills` and stylesheets to
-`app/assets/stylesheets/refills`
+  ```bash
+  rails generate refills:import SNIPPET
+  ```
 
-# Submitting components or patterns
+## The Bourbon family
 
-You are more than welcome to submit any component or pattern you can’t find in the library, or feel free to send requests for content you’d like to see. When submitting a pull request, please think of these style guides:
+- [Bourbon](https://github.com/thoughtbot/bourbon): A simple and lightweight mixin library for Sass
+- [Neat](https://github.com/thoughtbot/neat): A lightweight semantic grid framework for Sass and Bourbon
+- [Bitters](https://github.com/thoughtbot/bitters): Scaffold styles, variables and structure for Bourbon projects
+- [Refills](https://github.com/thoughtbot/refills): Prepackaged patterns and components built with Bourbon, Neat and Bitters
 
-#### HTML.erb
-
-* Make sure that each component/pattern is independent of other components/patterns in the Refills library. There should be no dependencies between different components/patterns.
-
-#### Scss
-
-All components/pattern should be fully responsive and follow the [Neat examples](http://neat.bourbon.io/examples).
-
-Avoid more than 2 levels of nesting for clarity and legibility of code.
-
-Try to use as little styling as possible. Use the styles that come with Bitters to keep everything consistent.
-
-Put media queries inline, don’t separate them since that will create a lot of repetitions of class names. If needed, for the sake of clarity, create a specific variable for a media query if a certain breakpoint changes the component/pattern drastically:
-
-```scss
-$tab-mode: $medium-screen;
-
-@include media($tab-mode) { // $tab-mode is the same as $medium-screen here
-  border-radius: 0;
-}
-```
-
-Create variables for any color or size that might appear in a refill, especially if it appears more than once in the component/pattern.
-
-Declare the variables inside of the component/pattern’s class like below. Note that variables should be interdependent to enable quick restyling.
-
-```scss
-.card {
-  $card-border-color: $base-border-color;
-  $card-border: 1px solid $card-border-color;
-  $card-background: lighten($card-border-color, 10);
-  &hellip;
-```
-
-# Credits
+## Credits
 
 ![thoughtbot](http://thoughtbot.com/images/tm/logo.png)
 
-Refills is maintained and funded by [thoughtbot, inc](http://thoughtbot.com). Whenever a code snippet is borrowed or inspired by existing code, we try to credit the original developer/designer in our source code. Let us know if you think we have missed to do this.
+Refills is maintained and funded by [thoughtbot, inc](http://thoughtbot.com). Tweet your questions or suggestions to [@bourbonsass](https://twitter.com/bourbonsass) and while you’re at it follow us too.
 
-Tweet your questions or suggestions to [@bourbonsass](https://twitter.com/bourbonsass) and while you’re at it follow us too.
+Whenever a code snippet is borrowed or inspired by existing code, we try to credit the original developer/designer in our source code. Let us know if you think we have missed to do this.
 
-# License
+## License
 
-Refills is Copyright © 2014 thoughtbot. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE.txt) file.
+Copyright © 2014 [thoughtbot, inc](http://thoughtbot.com). Refills is free software, and may be redistributed under the terms specified in the [license](LICENSE.md).
