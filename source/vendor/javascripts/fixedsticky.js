@@ -182,4 +182,4 @@
 		$( win.document.documentElement ).addClass( S.classes.withoutFixedFixed );
 	}
 
-})( this, jQuery );
+})( this, $ );
