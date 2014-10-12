@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   $(menuToggle).on('click', function(e) {
     e.preventDefault();
-    menu.slideToggle(function(){
+    menu.fadeToggle(function(){
       if(menu.is(':hidden')) {
         menu.removeAttr('style');
       }
